@@ -20,7 +20,7 @@ service ChiefOfStateService {
 // ProcessCommandRequest
 message ProcessCommandRequest {
   // the entity unique id
-  string entity_uuid = 1;
+  string entity_id = 1;
   // the command to process
   google.protobuf.Any command = 2;
 }
