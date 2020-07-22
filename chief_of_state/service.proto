@@ -15,6 +15,8 @@ import "chief_of_state/common.proto";
 service ChiefOfStateService {
   // Used to process command sent by an application
   rpc ProcessCommand(ProcessCommandRequest) returns (ProcessCommandResponse);
+  // Used to get the current state of that entity
+  rpc GetState(GetStateRequest) returns (GetStateResponse);
 }
 
 // ProcessCommandRequest
@@ -27,6 +29,17 @@ message ProcessCommandRequest {
 
 // ProcessCommandResponse
 message ProcessCommandResponse {
+  // the entity state returned after the command has been processed
+  google.protobuf.Any state = 1;
+  // additional meta data
+  MetaData meta = 2;
+}
+
+message GetStateRequest {
+  string entity_id = 1;
+}
+
+message GetStateResponse {
   // the entity state returned after the command has been processed
   google.protobuf.Any state = 1;
   // additional meta data
