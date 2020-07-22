@@ -40,7 +40,7 @@ message GetStateRequest {
 }
 
 message GetStateResponse {
-  // the entity state returned after the command has been processed
+  // the current state of the entity
   google.protobuf.Any state = 1;
   // additional meta data
   MetaData meta = 2;
