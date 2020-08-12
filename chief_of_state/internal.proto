@@ -23,7 +23,7 @@ message RemoteUnaryCall {
   }
 
   // the message to send
-  google.protobuf.Any argument = 1;
+  google.protobuf.Any message = 1;
 
   // the grpc headers/metadata
   repeated Header headers = 2;
