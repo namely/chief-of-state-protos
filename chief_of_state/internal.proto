@@ -11,7 +11,7 @@ option csharp_namespace = "Namely.ChiefOfStateService.Grpc";
 import "google/protobuf/any.proto";
 
 // a wrapper message for forwarding headers to the remote writeside handler
-message RemoteCommand {
+message RemoteUnaryCall {
   // a helper messsage for gRPC metadata
   message Header {
       string key = 1;
@@ -23,7 +23,7 @@ message RemoteCommand {
   }
 
   // the message to send
-  google.protobuf.Any command = 1;
+  google.protobuf.Any argument = 1;
 
   // the grpc headers/metadata
   repeated Header headers = 2;
