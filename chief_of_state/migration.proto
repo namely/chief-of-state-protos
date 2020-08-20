@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package chief_of_state;
+
+option java_package = "com.namely.protobuf.chief_of_state";
+option java_multiple_files = true;
+option java_outer_classname = "CosMigrationProto";
+option go_package = "chief_of_state";
+option csharp_namespace = "Namely.ChiefOfStateService.Grpc";
+
+import "google/protobuf/any.proto";
+
+
+// Migrate command sends a kafka event to chief of state as a command
+message Migrate {
+    // the kafka event e.g OrgUnitsCreated
+    google.protobuf.Any event = 1;
+}
