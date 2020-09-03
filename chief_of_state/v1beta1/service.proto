@@ -2,10 +2,10 @@ syntax = "proto3";
 
 package chief_of_state;
 
-option java_package = "com.namely.protobuf.chief_of_state";
+option java_package = "com.namely.protobuf.chief_of_state.v1beta1";
 option java_multiple_files = true;
 option java_outer_classname = "CosServiceProto";
-option go_package = "chief_of_state";
+option go_package = "chief_of_statev1beta1";
 option csharp_namespace = "Namely.ChiefOfStateService.Grpc";
 
 import "google/protobuf/any.proto";
