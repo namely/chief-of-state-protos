@@ -5,7 +5,7 @@ package chief_of_state;
 option java_package = "com.namely.protobuf.chief_of_state.v1beta1";
 option java_multiple_files = true;
 option java_outer_classname = "CosReadSideHandlerProto";
-option go_package = "chief_of_statev1beta1";
+option go_package = "chiefofstatev1beta1";
 option csharp_namespace = "Namely.ChiefOfStateService.Grpc";
 
 import "google/protobuf/any.proto";
