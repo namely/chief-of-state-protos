@@ -2,13 +2,13 @@ syntax = "proto3";
 
 package chief_of_state;
 
-option java_package = "com.namely.protobuf.chief_of_state.v1beta1";
+option java_package = "com.namely.protobuf.chief_of_state.v1";
 option java_multiple_files = true;
 option java_outer_classname = "CosWriteSideHandlerProto";
-option go_package = "chiefofstatev1beta1";
-option csharp_namespace = "Namely.ChiefOfState.V1Beta1.Grpc";
+option go_package = "chiefofstatev1";
+option csharp_namespace = "Namely.ChiefOfState.V1.Grpc";
 import "google/protobuf/any.proto";
-import "chief_of_state/v1beta1/common.proto";
+import "chief_of_state/v1/common.proto";
 
 // Defines the interface that will be implemented by any application that
 // wants to keeps its events and state with ChiefOfState. So an application will
