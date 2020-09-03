@@ -6,7 +6,7 @@ option java_package = "com.namely.protobuf.chief_of_state.v1beta1";
 option java_multiple_files = true;
 option java_outer_classname = "CosServiceProto";
 option go_package = "chiefofstatev1beta1";
-option csharp_namespace = "Namely.ChiefOfStateService.Grpc";
+option csharp_namespace = "Namely.ChiefOfState.Grpc";
 
 import "google/protobuf/any.proto";
 import "chief_of_state/common.proto";
