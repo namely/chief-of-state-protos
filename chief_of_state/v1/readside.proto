@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package chief_of_state;
+package chief_of_state.v1;
 
 option java_package = "com.namely.protobuf.chiefofstate.v1";
 option java_multiple_files = true;
@@ -27,7 +27,7 @@ message HandleReadSideRequest {
   // the resulting state associated to the persisted event
   google.protobuf.Any state = 2;
   // additional meta data
-  MetaData meta = 3;
+  chief_of_state.v1.MetaData meta = 3;
 }
 
 // ReadSideResponse is used by ChiefOfState to either

@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package chief_of_state;
+package chief_of_state.v1;
 
 option java_package = "com.namely.protobuf.chiefofstate.v1";
 option java_multiple_files = true;
@@ -13,7 +13,7 @@ message MetaData {
   string entity_id = 1;
   // the revision number for the entity, increases sequentially
   // this is very useful to handle optimistic lock
-  int64 revision_number = 2;
+  uint32 revision_number = 2;
   // the time the state has been modified
   google.protobuf.Timestamp revision_date = 3;
   // use to store additional data.
