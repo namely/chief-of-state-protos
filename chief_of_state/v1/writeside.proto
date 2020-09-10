@@ -37,24 +37,13 @@ message HandleCommandRequest {
 // HandleCommandResponse
 message HandleCommandResponse {
   oneof response_type {
-    // With this response type an event is persisted before
-    // a reply is sent back to the caller. The reply message that is sent after
-    // the event is persisted contains the resulting state after the event is
-    // handled
-    PersistAndReply persist_and_reply = 1;
-    // With this response the current state is sent back to the caller.
-    // This type of response is very useful to read-only requests that do not
-    // need a read side query.
-    Reply reply = 2;
+    // An event to append to the journal
+    google.protobuf.Any event = 1;
+    // Represents that this command resulted in no event.
+    // Can be used to handle "no-op" commands, skipping
+    // redundant commands for idempotency, etc.
+    google.protobuf.Empty no_event = 2;
   };
-}
-// Reply results in current state to be returned
-message Reply {}
-
-// PersistAndReply contains the event to persist
-message PersistAndReply {
-  // event to persist
-  google.protobuf.Any event = 1;
 }
 
 // HandleEventRequest
