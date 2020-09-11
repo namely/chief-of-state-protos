@@ -37,14 +37,10 @@ message HandleCommandRequest {
 
 // HandleCommandResponse
 message HandleCommandResponse {
-  oneof response_type {
-    // An event to append to the journal
-    google.protobuf.Any event = 1;
-    // Represents that this command resulted in no event.
-    // Can be used to handle "no-op" commands, skipping
-    // redundant commands for idempotency, etc.
-    google.protobuf.Empty no_event = 2;
-  };
+  // An event to append to the journal. If not set, COS
+  // will treat this command as a no-op and return current
+  // state to the caller
+  google.protobuf.Any event = 1;
 }
 
 // HandleEventRequest
