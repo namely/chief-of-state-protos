@@ -38,8 +38,7 @@ message HandleCommandRequest {
 // HandleCommandResponse
 message HandleCommandResponse {
   // An event to append to the journal. If not set, COS
-  // will treat this command as a no-op and return current
-  // state to the caller
+  // will treat this command as a no-op.
   google.protobuf.Any event = 1;
 }
 
