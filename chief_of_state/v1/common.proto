@@ -7,7 +7,9 @@ option java_multiple_files = true;
 option java_outer_classname = "CosCommonProto";
 option go_package = "chiefofstatev1";
 option csharp_namespace = "Namely.ChiefOfState.V1";
+
 import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
 
 message MetaData {
   string entity_id = 1;
@@ -17,5 +19,5 @@ message MetaData {
   // the time the state has been modified
   google.protobuf.Timestamp revision_date = 3;
   // use to store additional data.
-  map<string, string> data = 4;
+  map<string, google.protobuf.Any> data = 4;
 }
