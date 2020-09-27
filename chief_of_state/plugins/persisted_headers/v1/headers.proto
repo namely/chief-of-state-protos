@@ -7,7 +7,7 @@ option java_multiple_files = true;
 option java_outer_classname = "CosPersistedHeadersProto";
 option csharp_namespace = "Namely.ChiefOfState.Plugins.PersistedHeaders.V1";
 
-message Header{
+message Header {
   string key = 1;
 
   oneof value {
@@ -17,5 +17,6 @@ message Header{
 }
 
 message Headers {
+  // persisted headers
   repeated Header headers = 1;
 }
