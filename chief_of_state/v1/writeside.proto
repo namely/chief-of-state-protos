@@ -2,14 +2,14 @@ syntax = "proto3";
 
 package chief_of_state.v1;
 
-option java_package = "com.namely.protobuf.chiefofstate.v1";
+option csharp_namespace = "Namely.ChiefOfState.V1";
+option go_package = "chiefofstatev1";
 option java_multiple_files = true;
 option java_outer_classname = "CosWriteSideHandlerProto";
-option go_package = "chiefofstatev1";
-option csharp_namespace = "Namely.ChiefOfState.V1";
+option java_package = "com.namely.protobuf.chiefofstate.v1";
 
-import "google/protobuf/any.proto";
 import "chief_of_state/v1/common.proto";
+import "google/protobuf/any.proto";
 
 // Defines the interface that will be implemented by any application that
 // wants to keeps its events and state with ChiefOfState. So an application will
@@ -30,9 +30,10 @@ message HandleCommandRequest {
   google.protobuf.Any command = 1;
   // the aggregate state at the moment of handling the command. This is the
   // state before the command being handled.
-  google.protobuf.Any current_state = 2;
-  // additional meta data.
-  chief_of_state.v1.MetaData meta = 3;
+  google.protobuf.Any prior_state = 2;
+  // the prior event meta data. This event meta data is the previous event
+  // emitted before this command meta data.
+  chief_of_state.v1.MetaData prior_event_meta = 3;
 }
 
 // HandleCommandResponse
@@ -47,9 +48,9 @@ message HandleEventRequest {
   // the event to handle
   google.protobuf.Any event = 1;
   // the state before the event is being handled.
-  google.protobuf.Any current_state = 2;
-  // additional meta data
-  chief_of_state.v1.MetaData meta = 3;
+  google.protobuf.Any prior_state = 2;
+  // the event to handle meta data
+  chief_of_state.v1.MetaData event_meta = 3;
 }
 
 // HandleEventResponse contains the resulting state

@@ -2,13 +2,14 @@ syntax = "proto3";
 
 package chief_of_state.v1;
 
-option java_package = "com.namely.protobuf.chiefofstate.v1";
+option csharp_namespace = "Namely.ChiefOfState.V1";
+option go_package = "chiefofstatev1";
 option java_multiple_files = true;
 option java_outer_classname = "CosReadSideHandlerProto";
-option go_package = "chiefofstatev1";
-option csharp_namespace = "Namely.ChiefOfState.V1";
-import "google/protobuf/any.proto";
+option java_package = "com.namely.protobuf.chiefofstate.v1";
+
 import "chief_of_state/v1/common.proto";
+import "google/protobuf/any.proto";
 
 // Defines the readSide handler service interface that will be implemented by
 // any application that needs to build a readSide from the events persisted.
