@@ -31,8 +31,8 @@ message HandleCommandRequest {
   // the aggregate state at the moment of handling the command. This is the
   // state before the command being handled.
   google.protobuf.Any prior_state = 2;
-  // the prior event meta data. This event meta data is the previous event
-  // emitted before this command meta data.
+  // the prior event meta data. This is the event meta data of the last event
+  // before this command
   chief_of_state.v1.MetaData prior_event_meta = 3;
 }
 
@@ -49,7 +49,7 @@ message HandleEventRequest {
   google.protobuf.Any event = 1;
   // the state before the event is being handled.
   google.protobuf.Any prior_state = 2;
-  // the event to handle meta data
+  // the meta data of this event
   chief_of_state.v1.MetaData event_meta = 3;
 }
 
