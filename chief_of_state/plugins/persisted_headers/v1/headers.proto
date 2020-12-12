@@ -2,18 +2,17 @@ syntax = "proto3";
 
 package chief_of_state.plugins.persisted_headers.v1;
 
-option java_package = "com.namely.protobuf.chiefofstate.plugins.persistedheaders.v1";
+option csharp_namespace = "Namely.ChiefOfState.Plugins.PersistedHeaders.V1";
 option java_multiple_files = true;
 option java_outer_classname = "CosPersistedHeadersProto";
-option csharp_namespace = "Namely.ChiefOfState.Plugins.PersistedHeaders.V1";
+option java_package = "com.namely.protobuf.chiefofstate.plugins.persistedheaders.v1";
 
 message Header {
   string key = 1;
-
   oneof value {
-    string stringValue = 2;
-    bytes bytesValue = 3;
-  };
+    string string_value = 2;
+    bytes bytes_value = 3;
+  }
 }
 
 message Headers {
