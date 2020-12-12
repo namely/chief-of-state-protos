@@ -1,0 +1,36 @@
+# This is a basic workflow to help you get started with Actions
+
+name: ci
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        if: success()
+        uses: actions/checkout@v1
+        with:
+          ref: master
+      - name: checkout-master
+        if: success()
+        run: git checkout master
+      - name: checkout
+        if: success()
+        uses: actions/checkout@v1
+      # There is no need to do this if you are not installing from source
+      - name: setup
+        if: success()
+        uses: actions/setup-go@v1
+        with:
+          go-version: 1.14.2
+      - name: make local
+        if: success()
+        run: make local
