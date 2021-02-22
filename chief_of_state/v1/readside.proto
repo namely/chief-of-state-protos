@@ -34,6 +34,7 @@ message HandleReadSideRequest {
 // ReadSideResponse is used by ChiefOfState to either
 // commit events read offset or not.
 message HandleReadSideResponse {
-  // states whether the read side rpc operation was successful or not
+  // successful=true means the offset will be committed and the readside will move on to process the next event
+  // Otherwise, if successful=false, the event will get reprocessed with a backoff strategy.
   bool successful = 1;
 }
