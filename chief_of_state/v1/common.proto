@@ -20,4 +20,14 @@ message MetaData {
   google.protobuf.Timestamp revision_date = 3;
   // use to store additional data.
   map<string, google.protobuf.Any> data = 4;
+  // headers
+  repeated Header headers = 5;
+}
+
+message Header {
+  string key = 1;
+  oneof value {
+    string string_value = 2;
+    bytes bytes_value = 3;
+  }
 }
