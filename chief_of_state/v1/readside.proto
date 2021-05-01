@@ -29,6 +29,8 @@ message HandleReadSideRequest {
   google.protobuf.Any state = 2;
   // additional meta data
   chief_of_state.v1.MetaData meta = 3;
+  // the identifier of the read side service receiving the request
+  string read_side_id = 4;
 }
 
 // ReadSideResponse is used by ChiefOfState to either
