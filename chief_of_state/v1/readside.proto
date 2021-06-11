@@ -16,8 +16,10 @@ import "google/protobuf/any.proto";
 // ChiefOfState will connect to this service when the readSide is enabled and
 // push events to it.
 service ReadSideHandlerService {
-  // Helps build a read model from persisted events and snpahots
-  rpc HandleReadSide(HandleReadSideRequest) returns (HandleReadSideResponse);
+  // Helps build a read model from persisted events and snapshots
+  rpc HandleReadSide(HandleReadSideRequest) returns (HandleReadSideResponse){}
+  // Send a sequence of events and snapshots to be processed to build a read model.
+  rpc HandleReadSideStream (stream HandleReadSideRequest) returns (HandleReadSideResponse){}
 }
 
 // ReadSideRequest is used to push the ReadSideHandler
