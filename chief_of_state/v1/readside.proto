@@ -19,10 +19,10 @@ service ReadSideHandlerService {
   // Helps build a read model from persisted events and snapshots
   rpc HandleReadSide(HandleReadSideRequest) returns (HandleReadSideResponse){}
   // Send a sequence of events and snapshots to be processed to build a read model.
-  rpc HandleReadSideStream (stream HandleReadSideRequest) returns (HandleReadSideResponse){}
+  rpc HandleReadSideStream (stream HandleReadSideStreamRequest) returns (HandleReadSideStreamResponse){}
 }
 
-// ReadSideRequest is used to push the ReadSideHandler
+// HandleReadSideRequest is used to push the ReadSideHandler
 // events and state persisted in the journal and the snapshot
 message HandleReadSideRequest {
   // the persisted event
@@ -35,9 +35,31 @@ message HandleReadSideRequest {
   string read_side_id = 4;
 }
 
-// ReadSideResponse is used by ChiefOfState to either
+// HandleReadSideResponses is used by ChiefOfState to either
 // commit events read offset or not.
 message HandleReadSideResponse {
+  // successful=true means the offset will be committed and the readside will move on to process the next event.
+  // Otherwise, if successful=false, the event will get reprocessed with a backoff strategy.
+  bool successful = 1;
+}
+
+
+// HandleReadSideStreamRequest is used to push the ReadSideHandler
+// events and state persisted in the journal and the snapshot
+message HandleReadSideStreamRequest {
+  // the persisted event
+  google.protobuf.Any event = 1;
+  // the resulting state associated to the persisted event
+  google.protobuf.Any state = 2;
+  // additional meta data
+  chief_of_state.v1.MetaData meta = 3;
+  // the identifier of the read side service receiving the request
+  string read_side_id = 4;
+}
+
+// HandleReadSideStreamResponse is used by ChiefOfState to either
+// commit events read offset or not.
+message HandleReadSideStreamResponse {
   // successful=true means the offset will be committed and the readside will move on to process the next event.
   // Otherwise, if successful=false, the event will get reprocessed with a backoff strategy.
   bool successful = 1;
