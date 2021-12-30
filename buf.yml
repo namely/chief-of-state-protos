@@ -7,6 +7,7 @@ lint:
   except:
     - ENUM_VALUE_PREFIX
     - ENUM_ZERO_VALUE_SUFFIX
+    - FILE_SAME_GO_PACKAGE
 breaking:
   use:
     - FILE
