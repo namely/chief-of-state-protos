@@ -3,6 +3,7 @@ syntax = "proto3";
 package chief_of_state.plugins.persisted_headers.v1;
 
 option csharp_namespace = "Namely.ChiefOfState.Plugins.PersistedHeaders.V1";
+option go_package = "chief_of_state/plugins/persisted_headers/v1;cosheadersv1";
 option java_multiple_files = true;
 option java_outer_classname = "CosPersistedHeadersProto";
 option java_package = "com.namely.protobuf.chiefofstate.plugins.persistedheaders.v1";
