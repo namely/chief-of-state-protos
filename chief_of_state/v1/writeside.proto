@@ -38,9 +38,14 @@ message HandleCommandRequest {
 
 // HandleCommandResponse
 message HandleCommandResponse {
-  // An event to append to the journal. If not set, COS
-  // will treat this command as a no-op.
-  google.protobuf.Any event = 1;
+  // An event to append to the journal.
+  // This field is deprecated, please use events instead
+  google.protobuf.Any event = 1 [deprecated = true];
+  // Events to append to the journal.
+  repeated google.protobuf.Any events = 2;
+  // 1. If both event and events fields are not set, COS will treat this command as a no-op.
+  // 2. If both event and events fields are set, the event field will be disregarded.
+  // 3. Else, the event or events will be processed.
 }
 
 // HandleEventRequest
